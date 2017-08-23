@@ -126,12 +126,77 @@ Array
 		方法返回指定元素（也即有效的 JavaScript 值或变量）在数组中的最后一个的索引，如果不存在则返回 -1。
 		从数组的后面向前查找，从 fromIndex 处开始。
 		lastIndexOf 使用严格相等（strict equality，即 ===）比较 searchElement 和数组中的元素。
+		//IE > 9
+	
+	Array.prototype.map(fn, thisArg)
+		创建一个新数组，其结果是该数组中的每个元素都调用一个提供的函数后返回的结果。
+		let array = arr.map(function callback(currentValue, index, array) { 
+   				 // Return element for new_array 
+			}[, thisArg])
 
+		使用 map 方法处理数组时，数组元素的范围是在 callback 方法第一次调用之前就已经确定了。
+		在 map 方法执行的过程中：原数组中新增加的元素将不会被 callback 访问到；
+		若已经存在的元素被改变或删除了，则它们的传递到 callback 的值是 map 方法遍历到它们的那一时刻的值；而被删除的元素将不会被访问到。
+		//IE > 9
 
+	Array.prototype.pop()
+	从数组中删除最后一个元素，并返回该元素的值。
+	此方法更改数组的长度。
+	从数组中删除的元素; undefined 如果数组为空。
+	//IE > 5.5
 
+	Array.prototype.push()
+		一个或多个元素添加到数组的末尾，并返回数组的新长度。
+		可应用在类似数组的对象上
+		可以在一个对象上工作.
+		我们将该集合存储在对象本身上，并使用在 Array.prototype.push 上使用的 call 来调用该方法，
+		使其认为我们正在处理数组，而它只是像平常一样运作
+		//IE > 5.5
 
+	Array.prototype.reduce()
+		对累加器和数组中的每个元素 (从左到右)应用一个函数，将其减少为单个值
+		array.reduce(function(accumulator, currentValue, currentIndex, array), initialValue)
+		accumulator  上一次调用的返回值
+		currentValue  正在处理的元素
+		currentIndex  正在处理元素的索引
+		array 调用reduce数组
+		initialValue  如果没有设置初始值，则将数组中的第一个元素作为初始值。空数组调用reduce时没有设置初始值将会报错。
 
+	Array.prototype.reduceRight()
+	    从右向左，和reduce相反
 
+	Array.prototype.reverse()
+		将数组中元素的位置颠倒。
 
+	Array.prototype.shift()
+		从数组中删除第一个元素，并返回该元素的值。此方法更改数组的长度。
+		这个方法能够通过 call 或 apply 方法作用于类似数组的对象上
 
+	Array.prototype.slice(start, end)
+		浅拷贝一个数组对象，原始数组不会被更改
+		浅拷贝--当原引用数组发生变化的时候，新数组也会发生变化
 
+	Array.prototype.some()
+		测试数组中的某些元素是否通过由提供的函数实现的测试
+		有一个符合条件就会返回true
+		//IE > 9
+
+	Array.prototype.splice()
+		通过删除现有元素和/或添加新元素来更改一个数组的内容。
+		改变原数组结构，
+		返回被删除元素组成的数组
+		array.splice(start)
+		array.splice(start, deleteCount) 
+		array.splice(start, deleteCount, item1, item2, ...)
+
+	Array.prototype.toLocaleString()
+		一个字符串表示数组中的元素。
+
+	Array.prototype.toString()
+		返回一个字符串，表示指定的数组及其元素。
+		Array 对象覆盖了 Object 的 toString 方法。对于数组对象，toString 方法返回一个字符串，该字符串由数组中的每个元素的 toString() 返回值经调用 join() 方法连接（由逗号隔开）组成。
+
+	Array.prototype.unshift()
+		将一个或多个元素添加到数组的开头，并返回新数组的长度
+		返回值 length;
+		
